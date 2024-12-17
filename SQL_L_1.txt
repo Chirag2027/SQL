@@ -22,3 +22,20 @@ SHOW TABLES;
 
 -- TO see entire Schema / Table Definition
 SHOW CREATE TABLE employee;
+
+-- Command to Delete the Table
+DROP Table employee;
+
+-- SYNTAX - 1: Insert Data into a Table
+-- when we mention the table_name then it expects that we are inserting the values in a proper sequence
+-- by mentioning only the table name, it automatically pickup the column sequence
+-- And we have to write the value for each column 
+INSERT INTO employee VALUES(1, 'Chirag', 100000, '2024-10-24');
+
+-- This statement will fail
+INSERT INTO employee VALUES(1, 'Chirag', '2024-10-24');
+
+-- SYNTAX - 2: Insert Data into a Table
+-- here we'll use specific column names
+INSERT INTO employee(salary, name, id) VALUES(300000, 'Sparsh', 2);
+
