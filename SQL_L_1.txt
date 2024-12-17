@@ -1,0 +1,6 @@
+-- Create DataBase -> Command 
+CREATE DATABASE BigDataBootCamp;
+CREATE DATABASE Test1;
+
+-- Get the list of existing DBs
+SHOW DATABASES;
