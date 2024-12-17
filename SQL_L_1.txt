@@ -4,3 +4,21 @@ CREATE DATABASE Test1;
 
 -- Get the list of existing DBs
 SHOW DATABASES;
+
+-- Drop / Delete the DBs -> Command
+DROP DATABASE test;
+
+-- GO inside the particular DB
+use BigDataBootCamp;
+
+-- Command to Create a Table
+Create Table if not exists employee(
+    id INT, 
+    name VARCHAR(30)
+);
+
+-- Command to list down all the Tables
+SHOW TABLES;
+
+-- TO see entire Schema / Table Definition
+SHOW CREATE TABLE employee;
