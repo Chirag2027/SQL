@@ -39,3 +39,72 @@ INSERT INTO employee VALUES(1, 'Chirag', '2024-10-24');
 -- here we'll use specific column names
 INSERT INTO employee(salary, name, id) VALUES(300000, 'Sparsh', 2);
 
+-- Insert Multiple Rows using single Insert Statement
+INSERT INTO employee VALUES(3, 'Rahul', 23400, '2022-09-24'), 
+                           (4, 'Mahi', 31400, '2023-09-04'),
+                           (5, 'Virat', 2300, '2022-11-24'); 
+
+-- Use SELECT command to query the data
+SELECT * from employee; 
+
+-- Command to display the structure of a table
+DESCRIBE employee;
+
+-- INTEGRITY CONSTRAINTS
+Create Table if not exists employee_with_constraints
+(
+    id INT NOT NULL, 
+    name VARCHAR(30) NOT NULL,
+    salary DOUBLE,
+    hiring_date DATE DEFAULT '2023-06-30',
+    UNIQUE (id),          -- I want all the values of the id column should be Unique 
+    CHECK (salary > 50000)
+);
+
+-- Example-1 for Integrity Constraints failure
+INSERT INTO employee_with_constraints VALUES(NULL, 'Rahul', 23400, '2022-09-24');
+-- Exception will be thrown - Column 'id' cannot be null
+
+-- Example-2 for Integrity Constraints failure
+INSERT INTO employee_with_constraints VALUES(1, NULL, 23400, '2022-09-24');
+-- Exception will be thrown - Column 'name' cannot be null
+
+-- Example-3 for Integrity Constraints failure
+INSERT INTO employee_with_constraints VALUES(1, 'Chirag', 49000, '2022-09-24');
+-- Exception wiil be thrown - Error: Check constraint 'employee_with_constraints_chk_1' is violated.
+-- Next time se Alias define kr dunga for a particular constraint, 
+-- jisse ye pta chale ki kaha constraint se error aa rha hai
+
+-- Inserting Some Data
+
+INSERT INTO employee_with_constraints VALUES(1, 'Rahul', 123400, '2022-09-24'), 
+                           (2, 'Mahi', 314000, '2023-09-04'),
+                           (3, 'Virat', 230000, '2022-11-24');
+
+-- Example-4 for Integrity Constraints failure
+INSERT INTO employee_with_constraints VALUES(2, 'Suresh', 456090, '2012-09-10');
+-- Exception will be thrown - Duplicate entry '2' for key 'employee_with_constraints.id'
+
+-- Example-4 for Integrity Constraints - DEFAULT
+INSERT INTO employee_with_constraints(id, name, salary) VALUES(4, 'Yash', 456190);
+
+SELECT * FROM employee_with_constraints;
+
+
+-- INTEGRITY CONSTRAINTS with Alias Name
+-- Alias name is useful coz. it will be used in ALTER command while removing or modifying the table constraints
+Create Table if not exists employee_with_constraints_tmp
+(
+    id INT NOT NULL, 
+    name VARCHAR(30) NOT NULL,
+    salary DOUBLE,
+    hiring_date DATE DEFAULT '2023-06-30',
+    CONSTRAINT unique_id UNIQUE (id),                 -- unique_id -> alias name    
+    CONSTRAINT salaray_check CHECK (salary > 50000)   -- salary_check -> alias name
+);
+
+-- Example for Integrity Constraints failure with ALIAS NAME of Constraints
+-- Exception will be thrown - Check constraint 'salaray_check' is violated.
+-- Here ALIAS NAME is Used
+INSERT INTO employee_with_constraints_tmp VALUES(2, 'Suresh', 45090, '2012-09-10');
+
