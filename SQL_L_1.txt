@@ -7,3 +7,6 @@ SHOW DATABASES;
 
 -- Drop / Delete the DBs -> Command
 DROP DATABASE test;
+
+-- GO inside the particular DB
+use BigDataBootCamp;
