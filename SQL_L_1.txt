@@ -4,3 +4,6 @@ CREATE DATABASE Test1;
 
 -- Get the list of existing DBs
 SHOW DATABASES;
+
+-- Drop / Delete the DBs -> Command
+DROP DATABASE test;
