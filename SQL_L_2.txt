@@ -1,0 +1,23 @@
+-- LECTURE - 2
+CREATE DATABASE class2_db;
+USE class2_db;
+
+CREATE Table if NOT exists employee
+(
+    id INT,
+    name VARCHAR(50), 
+    address VARCHAR(50), 
+    city VARCHAR(30)
+);
+
+INSERT INTO employee VALUES(1, 'Chirag', 'Parsvnath Edens', 'Greater Noida');
+SELECT * FROM employee;
+
+-- Add new Column named as DOB in the employee table
+-- we can do this using ALTER command
+ALTER TABLE employee ADD DOB DATE;
+DESC employee;
+-- Mera jo already inserted Record tha table me, usme DOB column ki value of NULL hoga
+
+-- Modify existing colum in a table --> Change datatype of name column or increase length of name column
+ALTER TABLE employee MODIFY COLUMN name VARCHAR(100);
