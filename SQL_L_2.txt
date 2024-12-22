@@ -126,3 +126,27 @@ TRUNCATE Table persons;
 SELECT * FROM persons;
 
 DROP TABLE persons;
+
+-- Operations with SELECT command {DQL}
+
+DROP TABLE employee;
+
+create table if not exists employee(
+    id INT,
+    name VARCHAR(50),
+    age INT,
+    hiring_date DATE,
+    salary INT,
+    city VARCHAR(50)
+);
+
+INSERT INTO employee VALUES(1,'Shashank', 24, '2021-08-10', 10000, 'Lucknow');
+INSERT INTO employee VALUES(2,'Rahul', 25, '2021-08-10', 20000, 'Khajuraho');
+INSERT INTO employee VALUES(3,'Sunny', 22, '2021-08-11', 11000, 'Banaglore');
+INSERT INTO employee VALUES(5,'Amit', 25, '2021-08-11', 12000, 'Noida');
+INSERT INTO employee VALUES(1,'Puneet', 26, '2021-08-12', 50000, 'Gurgaon');
+
+SELECT * FROM employee;
+
+-- Count total Records/Rows in the table
+SELECT COUNT(*) FROM employee;
