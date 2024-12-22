@@ -97,3 +97,32 @@ SELECT * FROM persons;
 -- UNIQUE allows NULL, but PK doesn't
 INSERT INTO persons VALUES(4, 'Om', NULL);
 
+-- Foreign Key in Detail while doing JOINS
+-- Create tables for Foreign Key DEMO
+CREATE Table customer
+(
+    cust_id INT,
+    name VARCHAR(50),
+    age INT,
+    CONSTRAINT pk PRIMARY KEY (cust_id)
+);
+
+CREATE Table orders
+(
+    order_id INT,
+    order_num INT,
+    customer_id INT, 
+    CONSTRAINT pk PRIMARY KEY (order_id),
+    CONSTRAINT fk FOREIGN KEY (customer_id) REFERENCES customer(cust_id)
+);
+
+-- Difference b/w DROP & TRUNCATE commands
+-- These commands can be used to Delete the data from the tables
+-- TRUNCATE ->> will delete the data only, not delete the table structure and schema
+-- DROP ->> will delete the data along with table structure and schema
+
+SELECT * FROM persons;
+TRUNCATE Table persons;
+SELECT * FROM persons;
+
+DROP TABLE persons;
