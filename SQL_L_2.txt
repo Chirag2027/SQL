@@ -44,3 +44,36 @@ ALTER TABLE employee DROP CONSTRAINT id_unique;
 INSERT INTO employee VALUES(1, 'Chirag Verma', 'Parsvnath Edens Alpha 2', '2021-01-06');
 SELECT * FROM employee;
 
+-- KEYS
+CREATE TABLE IF NOT EXISTS persons
+(
+    id INT,
+    name VARCHAR(50),
+    age INT,
+    -- Defining PRIMARY KEYS
+    -- Method -1) PRIMARY KEY (id)
+    -- But I will use Method -2 shown below
+    CONSTRAINT pk PRIMARY KEY (id)
+);
+
+INSERT INTO persons VALUES(1, 'Chirag', 20);
+INSERT INTO persons VALUES(1, 'Rahul', 23);
+-- Above LOC not able to execute due to Primary Key
+
+INSERT INTO persons VALUES(NULL, 'Chirag', 20);
+
+-- 'age' ko UNIQUE krdo
+ALTER Table persons ADD CONSTRAINT age_unique UNIQUE(age);
+SELECT * FROM persons;
+INSERT INTO persons VALUES(2, 'Rahul', 38);
+
+-- Not able to insert as age is UNIQUE
+INSERT INTO persons VALUES(3, 'Mahesh', 38);
+
+-- UNIQUE NULL allow kr deta hai
+INSERT INTO persons VALUES(3, 'Mahesh', NULL);
+SELECT * FROM persons;
+
+-- UNIQUE allows NULL, but PK doesn't
+INSERT INTO persons VALUES(4, 'Om', NULL);
+
