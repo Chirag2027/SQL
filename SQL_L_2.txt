@@ -21,3 +21,12 @@ DESC employee;
 
 -- Modify existing colum in a table --> Change datatype of name column or increase length of name column
 ALTER TABLE employee MODIFY COLUMN name VARCHAR(100);
+
+-- DELETE Existing Column from given table
+ALTER TABLE employee DROP COLUMN city;
+SELECT * FROM employee;
+
+-- Rename the Column name
+-- name to full_name
+ALTER TABLE employee RENAME COLUMN name TO full_name;  
+
