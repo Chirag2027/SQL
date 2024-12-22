@@ -26,6 +26,26 @@ ALTER TABLE employee MODIFY COLUMN name VARCHAR(100);
 ALTER TABLE employee DROP COLUMN city;
 SELECT * FROM employee;
 
+-- Foreign Key in Detail while doing JOINS
+-- Create tables for Foreign Key DEMO
+CREATE Table customer
+(
+    cust_id INT,
+    name VARCHAR(50),
+    age INT,
+    CONSTRAINT pk PRIMARY KEY (cust_id)
+);
+
+CREATE Table orders
+(
+    order_id INT,
+    order_num INT,
+    customer_id INT, 
+    CONSTRAINT pk PRIMARY KEY (order_id),
+    CONSTRAINT fk FOREIGN KEY (customer_id) REFERENCES customer(cust_id)
+);
+
+
 -- Rename the Column name
 -- name to full_name
 ALTER TABLE employee RENAME COLUMN name TO full_name;  
