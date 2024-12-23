@@ -150,3 +150,44 @@ SELECT * FROM employee;
 
 -- Count total Records/Rows in the table
 SELECT COUNT(*) FROM employee;
+
+-- O/P me column name bhot ackward sa aa rha hai - 'COUNT(*)'
+-- So we can use Alias taaki column name kuch meaningful saa dikhe
+
+-- Alias Declaration
+SELECT COUNT(*) AS total_row_count FROM employee;
+-- total_row_count mera alias hai jo O/P me as a column name dikhega
+
+-- Display all columns in the final result
+SELECT * FROM employee;
+
+-- Display specific columns in the final result
+SELECT name, salary FROM employee;
+
+-- Alias for multiple columns
+SELECT name AS emp_name, salary AS emp_salary FROM employee;
+
+-- Print unique hiring_dates from the employee table when employees joined it
+SELECT DISTINCT (hiring_date) as dist_hiring_date FROM employee; 
+
+-- How many unique age values in the table??
+SELECT COUNT(DISTINCT(age)) as total_unique_ages FROM employee;
+
+-- Increment salary of each employee by 20% & display final result with new_salary
+SELECT id,
+       name,
+       salary as old_salary, 
+       (salary + salary * 0.2) as new_salary
+FROM employee;
+
+-- Syntax for UPDATE Command
+-- Original table me reflect hogi
+-- SET ->> modify some values in the existing tables
+UPDATE employee SET age = 20;
+-- here updates has been made for all rows
+SELECT * FROM employee;
+
+-- Update the salary of the employees after giving 20% increment
+UPDATE employee SET salary = salary * 1.2;
+
+
