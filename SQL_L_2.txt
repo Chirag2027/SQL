@@ -190,4 +190,17 @@ SELECT * FROM employee;
 -- Update the salary of the employees after giving 20% increment
 UPDATE employee SET salary = salary * 1.2;
 
+-- Filter data using WHERE clause
+SELECT * FROM employee WHERE hiring_date = '2021-08-10';
+SELECT * FROM employee;
 
+-- Update the salary of employees who joined the company on 2021-08-10 to 80000
+UPDATE employee SET salary = 80000 WHERE hiring_date = '2021-08-10';
+SELECT * FROM employee;
+
+-- How to delete some specific records from the table?
+-- using DELETE Command
+
+-- Delete records of those employees who joined on 2021-08-10
+DELETE FROM employee WHERE hiring_date = '2021-08-10';
+SELECT * FROM employee;
