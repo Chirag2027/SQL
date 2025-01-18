@@ -31,3 +31,15 @@ INSERT INTO auto_increment_example(name) VALUES("Chirag");
 INSERT INTO auto_increment_example(name) VALUES("Sparsh");
 SELECT * FROM auto_increment_example;
 
+-- Use of LIMIT keyword
+SELECT * FROM employee LIMIT 2;
+
+-- Sorting Data
+-- 2 type of sortings -> Ascending & Descending
+-- I'll be using 'ORDER BY' clause
+-- by default it is ascending
+select * from employee ORDER BY name;
+
+-- Doing the sorting in Descending order
+SELECT * FROM employee ORDER BY salary DESC;
+
