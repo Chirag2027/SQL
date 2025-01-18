@@ -43,3 +43,13 @@ select * from employee ORDER BY name;
 -- Doing the sorting in Descending order
 SELECT * FROM employee ORDER BY salary DESC;
 
+-- Display employee data in desc order of salary & if salaries are smae for more than 1 employees,
+-- then display them in ascending order of name
+SELECT * FROM employee ORDER BY salary DESC, name ASC;
+-- FEEL of above: 1st level of sorting applied of name, then if salary are same, 2nd level of sorting is applied.
+
+-- Write a quey to find the employee who is getting maximum salary.
+SELECT name FROM employee ORDER BY salary DESC LIMIT 1;
+-- If I want my entire record to be printed then:
+SELECT * FROM employee ORDER BY salary DESC LIMIT 1;
+
