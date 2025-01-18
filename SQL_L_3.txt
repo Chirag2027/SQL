@@ -53,3 +53,33 @@ SELECT name FROM employee ORDER BY salary DESC LIMIT 1;
 -- If I want my entire record to be printed then:
 SELECT * FROM employee ORDER BY salary DESC LIMIT 1;
 
+-- Conditional Operators : <,>,<=,>=
+-- Logical Operators : AND, OR, NOT
+SELECT * FROM employee;
+
+-- List All employees who are getting salary more than 20000
+SELECT * FROM employee WHERE salary > 20000;
+
+-- Filter the records where age of employess = 20
+SELECT * FROM employee Where age = 20;
+
+-- Filter the records where age of employess is not equal to 20
+-- 2 possible ways: using != or using <>
+SELECT * FROM employee Where age != 20;
+SELECT * FROM employee Where age <> 20;
+
+-- Find those employees who joined the complany on 2021-08-11 and their salary is less than 11500
+SELECT * FROM employee WHERE hiring_date = '2021-08-11' AND salary < 11500;
+
+-- Find those employees who joined the complany after 2021-08-11 or their salary is less than 20000
+SELECT * FROM employee WHERE hiring_date > '2021-08-11' OR salary < 20000;
+
+-- How to use BETWEEN operation in WHERE clause
+-- It is used to filter the records when we r not sure about the exact equality & inequality
+
+-- Get all employees data who joined the complany b/w hiring_date 2021-08-05 to 2021-08-11
+SELECT * FROM employee WHERE hiring_date >= '2021-08-05' AND hiring_date <= '2021-08-11';
+-- Above query can be written in a single line using BETWEEN keyword
+SELECT * FROM employee WHERE hiring_date BETWEEN '2021-08-05' AND '2021-08-11';
+-- Both the values will be inclusive
+
