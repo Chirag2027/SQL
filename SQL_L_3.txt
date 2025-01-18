@@ -20,3 +20,14 @@ select * from employee;
 -- How to Perform multi updates?
 UPDATE employee SET age = 20 , salary = 25000 WHERE hiring_date = '2021-08-10';
 select * from employee;
+
+-- Learning Auto Increment Example
+-- It will generate a new number whenever a new record is inserted
+CREATE TABLE auto_increment_example(
+    id int AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(30)
+);
+INSERT INTO auto_increment_example(name) VALUES("Chirag");
+INSERT INTO auto_increment_example(name) VALUES("Sparsh");
+SELECT * FROM auto_increment_example;
+
