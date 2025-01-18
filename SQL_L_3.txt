@@ -83,3 +83,30 @@ SELECT * FROM employee WHERE hiring_date >= '2021-08-05' AND hiring_date <= '202
 SELECT * FROM employee WHERE hiring_date BETWEEN '2021-08-05' AND '2021-08-11';
 -- Both the values will be inclusive
 
+-- How to use LIKE operation in WHERE clause
+-- "LIKE" operation will be applied on "STRING" columns
+-- WILDCARDS in LIKE : '%' , '_'
+-- % : means 0, 1, more than 1 characters
+-- _ : only 1 character
+
+-- Filter all employees whose name starts with 'S'
+SELECT * FROM employee WHERE name LIKE 'S%';
+
+-- Filter all employees whose name starts with 'Sh'
+
+SELECT * FROM employee WHERE name LIKE 'Sh%';
+
+-- Filter all employees whose name ends with 'l'
+SELECT * FROM employee WHERE name LIKE '%l';
+
+-- Filter all employees whose name contains 'a'
+SELECT * FROM employee WHERE name LIKE '%a%';
+
+-- Filter all employees whose name starts with 'S' and ends with 'k'
+SELECT * FROM employee WHERE name LIKE 'S%k';
+
+-- Filter all employees whose name have exactly 5 characters
+SELECT * FROM employee WHERE name LIKE '_____';
+
+-- Filter all employees whose name have atleast 5 characters
+SELECT * FROM employee WHERE name LIKE '%_____%';
