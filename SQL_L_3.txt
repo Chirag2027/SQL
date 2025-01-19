@@ -110,3 +110,16 @@ SELECT * FROM employee WHERE name LIKE '_____';
 
 -- Filter all employees whose name have atleast 5 characters
 SELECT * FROM employee WHERE name LIKE '%_____%';
+
+-- How to use IS NULL or IS NOT NULL in WHERE clause
+insert into employee values(10,'Kapil', null, '2021-08-10', 10000, 'Assam');
+insert into employee values(11,'Nikhil', 30, '2021-08-10', null, 'Assam');
+SELECT * FROM employee;
+
+-- Filter all records where age is null
+SELECT * FROM employee WHERE age IS NULL;
+-- SELECT * FROM employee WHERE age = NULL; will not give any O/P : Wrong query hai ye DoNOTUSE
+
+-- Filter all records where salary is not null
+SELECT * FROm employee WHERE salary IS NOT NULL;
+
