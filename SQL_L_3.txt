@@ -123,3 +123,48 @@ SELECT * FROM employee WHERE age IS NULL;
 -- Filter all records where salary is not null
 SELECT * FROm employee WHERE salary IS NOT NULL;
 
+-- LEARNING GROUP BY
+create table orders_data
+(
+ cust_id int,
+ order_id int,
+ country varchar(50),
+ state varchar(50)
+);
+
+insert into orders_data values(1,100,'USA','Seattle'),
+                              (2,101,'INDIA','UP'),
+                              (2,103,'INDIA','Bihar'),
+                              (5,109,'UK','London'),
+                              (4,108,'USA','WDC'),
+                              (4,110,'USA','WDC'),
+                              (3,120,'INDIA','AP'),
+                              (2,121,'INDIA','Goa'),
+                              (1,131,'USA','Seattle'),
+                              (6,142,'USA','Seattle'),
+                              (7,150,'USA','Seattle');
+
+SELECT * FROM orders_data;
+
+-- Calculate total orders placed country wise
+SELECT country, COUNT(*) as total_order_count_countrywise FROM orders_data GROUP BY country;
+
+-- GROUP BY on employee table
+SELECT * FROM employee;
+UPDATE employee SET age = 25 WHERE id = 10;
+UPDATE employee SET salary = 15000, age = 22 WHERE id = 11;
+
+-- Write a query to find the total salary by each age group
+SELECT age, SUM(salary) as total_salary FROM employee GROUP BY age;
+
+-- Calculate different aggregated metrices for salary column for each age group
+-- I mean MIN, MAX, etc.
+SELECT age,
+        SUM(salary) as total_salary_by_each_age_group,
+        MAX(salary) as max_salary_by_each_age_group,
+        MIN(salary) as min_salary_by_each_age_group,
+        AVG(salary) as avg_salary_by_each_age_group,
+        COUNT(*) as total_emp_each_age_group   -- will return total employee in each age group
+FROM employee GROUP BY age;
+
+
